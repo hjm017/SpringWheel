@@ -1,187 +1,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zmt</groupId>
-  <artifactId>wx-zmt</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>wx-zmt Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <springside.version>5.0.0-SNAPSHOT</springside.version>
-    <spring-boot.version>1.2.7.RELEASE</spring-boot.version>
-    <commons-lang3.version>3.2.1</commons-lang3.version>
-    <javasimon.version>3.5.2</javasimon.version>
-    <assertj.version>2.2.0</assertj.version>
-    <orika.version>1.4.6</orika.version>
-    <guava.version>18.0</guava.version>
-    <commons-codec.version>1.10</commons-codec.version>
-    <commons-beanutils.version>1.9.2</commons-beanutils.version>
-
-    <java.version>1.7</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-  </properties>
-
-  <dependencies>
-    <!-- spring boot -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-mail</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-velocity</artifactId>
-    </dependency>
-
-    <!-- UTILS begin -->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>${commons-lang3.version}</version>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>${commons-codec.version}</version>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-      <version>${commons-beanutils.version}</version>
-      <optional>true</optional>
-    </dependency>
-    <!-- UTILS end -->
-
-    <dependency>
-      <groupId>ma.glasnost.orika</groupId>
-      <artifactId>orika-core</artifactId>
-      <version>${orika.version}</version>
-      <optional>true</optional>
-    </dependency>
-
-    <!-- web -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-    </dependency>
-
-    <!-- database -->
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
-    </dependency>
-
-
-    <!-- utils -->
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>${commons-lang3.version}</version>
-    </dependency>
-
-    <!-- jmx -->
-    <dependency>
-      <groupId>org.jolokia</groupId>
-      <artifactId>jolokia-core</artifactId>
-    </dependency>
-
-    <!-- javasimon -->
-    <dependency>
-      <groupId>org.javasimon</groupId>
-      <artifactId>javasimon-spring</artifactId>
-      <version>${javasimon.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.javasimon</groupId>
-      <artifactId>javasimon-console-embed</artifactId>
-      <version>${javasimon.version}</version>
-    </dependency>
-
-    <!-- test -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-  </dependencies>
-
-  <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-
-    <plugins>
-      <plugin>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.zmt</groupId>
+    <artifactId>wx-zmt</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>wx-zmt Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${spring-boot.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-    </plugins>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.3.RELEASE</version>
+        <relativePath/>
+    </parent>
 
-
-  </build>
-
-  <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <!--web starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--jpa starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--数据库连接-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <start-class>com.zmt.Application</start-class>
+        <java.version>1.7</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
