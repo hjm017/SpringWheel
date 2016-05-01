@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: yk
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.yk
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.7.0_79
+Main-Class: ${start-class}
+

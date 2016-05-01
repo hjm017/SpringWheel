@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wx-yk:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="wx-yk-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="wx-yk:war exploded" />
+    </root>
+  </artifact>
+</component>
