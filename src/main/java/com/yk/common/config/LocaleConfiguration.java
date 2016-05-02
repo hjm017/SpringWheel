@@ -13,6 +13,16 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
+/**
+ * 所有有关springmvc 的配置只需要继承WebMvcConfigurerAdapter重写里面的方法即可
+ *
+ * 1、覆盖spring boot默认生成的bean @Bean
+ * 2、增加拦截器  addInterceptors
+ * 3、添加参数解析器 addArgumentResolvers
+ * 4、配置路径映射  configurePathMatch
+ * 5、参数格式化工具（用于接收参数） addFormatters
+ * 6、配置消息转换器(用于@RequestBody和@ResponseBody) configureMessageConverters
+ */
 @Configuration
 public class LocaleConfiguration extends WebMvcConfigurerAdapter {
 
@@ -26,6 +36,10 @@ public class LocaleConfiguration extends WebMvcConfigurerAdapter {
         return sessionLocaleResolver;
     }
 
+    /**
+     * 增加拦截器
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -33,6 +47,10 @@ public class LocaleConfiguration extends WebMvcConfigurerAdapter {
         registry.addInterceptor(localeChangeInterceptor);
     }
 
+    /**
+     * 替换spring boot默认生成的messageSource
+     * @return
+     */
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
