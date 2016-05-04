@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1/xhtml"
-	  xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="keywords" content="登录页面" />
-		<meta name="description" content="登录页面" />
-		<title>永康运营中心平台</title>
+		<meta charset="utf-8" />
+		<title>运营后台</title>
+		<meta name="keywords" content="运营后台" />
+		<meta name="description" content="运营后台" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- basic styles -->
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" th:href="${@webUtil.getCssPath('/css/bootstrap.min.css')}" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css"  th:href="${@webUtil.getCssPath('/css/font-awesome.min.css')}"/>
+		<link href="$webUtil.getCssPath('/css/bootstrap.min.css')" rel="stylesheet" />
+		<link rel="stylesheet" href="$webUtil.getCssPath('/css/font-awesome.min.css')" />
 
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" th:href="${@webUtil.getCssPath('/css/font-awesome-ie7.min.css')}" />
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
 
 		<!-- page specific plugin styles -->
@@ -26,11 +24,11 @@
 
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="assets/css/ace.min.css" th:href="${@webUtil.getCssPath('/css/ace.min.css')}"/>
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" th:href="${@webUtil.getCssPath('/css/ace-rtl.min.css')}"/>
+		<link rel="stylesheet" href="$webUtil.getCssPath('/css/ace.min.css')" />
+		<link rel="stylesheet" href="$webUtil.getCssPath('/css/ace-rtl.min.css')" />
 
 		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" th:href="${@webUtil.getCssPath('/css/ace-ie.min.css')}"/>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
 
 		<!-- inline styles related to this page -->
@@ -38,8 +36,8 @@
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js" th:src="${@webUtil.getJsPath('/js/html5shiv.js')}"></script>
-		<script src="assets/js/respond.min.js" th:src="${@webUtil.getJsPath('/js/respond.min.js')}"></script>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -278,9 +276,9 @@
 
 		<!--[if !IE]> -->
 
-		<!--<script type="text/javascript">
+		<script type="text/javascript">
 			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-		</script>-->
+		</script>
 
 		<!-- <![endif]-->
 
@@ -290,9 +288,9 @@
 </script>
 <![endif]-->
 
-		<!--<script type="text/javascript">
+		<script type="text/javascript">
 			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>-->
+		</script>
 
 		<!-- inline scripts related to this page -->
 
@@ -302,6 +300,6 @@
 			 jQuery('#'+id).addClass('visible');
 			}
 		</script>
-	<!--<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>-->
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

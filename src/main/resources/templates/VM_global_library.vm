@@ -1,0 +1,13 @@
+#macro(test)
+	你妹
+#end
+#macro(man)
+	一个男人
+#end
+##支持多参数
+#macro(sayHello $youName)
+	Hello <strong> $youName</strong>
+#end
+#macro(countDown $ref)
+	$ref.. $ref.. $ref.. $ref.. $ref.. $ref
+#end

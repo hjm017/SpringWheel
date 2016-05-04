@@ -1,5 +1,6 @@
 package com.yk.common.util;
 
+import com.yk.common.component.PropComponent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -10,35 +11,22 @@ import org.springframework.stereotype.Component;
  * Time: 15:20
  * To change this template use File | Settings | File Templates.
  */
-@Component("webUtils")
 public class WebUtil {
 
-    @Value("${path.css}")
-    private String cssPath;
-
-    @Value("${path.js}")
-    private String jsPath;
-
-    @Value("${path.img}")
-    private String imgPath;
-
-    @Value("${path.host}")
-    private String hostPath;
-
     public String getCssPath(String uri) {
-        return cssPath + uri;
+        return PropComponent.getProp().getCssPath() + uri;
     }
 
     public String getJsPath(String uri) {
-        return jsPath + uri;
+        return PropComponent.getProp().getJsPath() + uri;
     }
 
     public String getImgPath(String uri) {
-        return imgPath + uri;
+        return PropComponent.getProp().getImgPath() + uri;
     }
 
     public String getHostPath(String uri) {
-        return hostPath + uri;
+        return PropComponent.getProp().getHostPath() + uri;
     }
 
 }

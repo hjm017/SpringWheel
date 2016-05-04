@@ -1,4 +1,4 @@
-package com.yk.common.util;
+package com.yk.common.component;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
