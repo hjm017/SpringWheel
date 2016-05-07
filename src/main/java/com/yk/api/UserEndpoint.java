@@ -2,8 +2,8 @@ package com.yk.api;
 
 import com.yk.common.mapper.BeanMapper;
 import com.yk.common.util.constants.MediaTypes;
-import com.yk.domain.User;
-import com.yk.dto.UserDto;
+import com.yk.data.domain.User;
+import com.yk.api.dto.UserDto;
 import com.yk.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

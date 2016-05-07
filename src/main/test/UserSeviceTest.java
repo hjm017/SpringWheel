@@ -1,17 +1,15 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yk.Application;
 import com.yk.common.util.HttpClientUtil;
-import com.yk.domain.User;
-import com.yk.dto.UserDto;
+import com.yk.data.domain.User;
+import com.yk.api.dto.UserDto;
 import com.yk.service.UserService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import sun.net.www.http.HttpClient;
 
 import java.util.List;
 

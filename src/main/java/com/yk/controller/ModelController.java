@@ -1,6 +1,6 @@
 package com.yk.controller;
 
-import com.yk.domain.Model;
+import com.yk.data.domain.Model;
 import com.yk.service.ModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

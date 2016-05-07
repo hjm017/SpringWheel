@@ -5,7 +5,7 @@ import com.yk.common.util.Messages;
 import com.yk.controller.form.site.SiteForm;
 import com.yk.controller.form.site.SiteSearchForm;
 import com.yk.controller.support.ControllerHelper;
-import com.yk.domain.Site;
+import com.yk.data.domain.Site;
 import com.yk.service.SiteService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,9 +2,8 @@ package com.yk.service;
 
 import com.yk.common.constants.YKConstant;
 import com.yk.controller.form.model.ModelSearchForm;
-import com.yk.domain.Model;
-import com.yk.repository.ModelDao;
-import org.apache.commons.lang3.StringUtils;
+import com.yk.data.domain.Model;
+import com.yk.data.repository.ModelDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,6 @@ package com.yk.controller.support;
 
 import com.yk.common.constants.YKConstant;
 import com.yk.controller.form.BaseSearchForm;
-import com.yk.domain.Device;
 import org.springframework.data.domain.Page;
 import org.springframework.ui.ModelMap;
 

@@ -2,7 +2,7 @@ package com.yk.controller;
 
 import com.yk.controller.form.device.DeviceSearchForm;
 import com.yk.controller.support.ControllerHelper;
-import com.yk.domain.Device;
+import com.yk.data.domain.Device;
 import com.yk.service.DeviceService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

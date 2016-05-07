@@ -2,11 +2,9 @@ package com.yk.service;
 
 import com.yk.common.constants.YKConstant;
 import com.yk.controller.form.site.SiteSearchForm;
-import com.yk.domain.Model;
-import com.yk.domain.Site;
-import com.yk.repository.SiteDao;
+import com.yk.data.domain.Site;
+import com.yk.data.repository.SiteDao;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
