@@ -8,7 +8,7 @@
 	<tool>
   		<key>webUtil</key>
   		<scope>application</scope>
-  		<class>com.yk.common.util.WebUtil</class>
+		<class>com.prototype.web.WebUtil</class>
 	</tool>
 
 </toolbox>

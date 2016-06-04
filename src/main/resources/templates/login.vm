@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <title>运营后台</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="${webUtil.getJsPath('/js/jquery-1.9.0.min.js')}"></script>
-    <script type="text/javascript" src="${webUtil.getJsPath('/images/login.js')}"></script>
-    <link href="${webUtil.getCssPath('/css/login2.css')}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="${webUtil.getJsDomain('/js/jquery-1.9.0.min.js')}"></script>
+    <script type="text/javascript" src="${webUtil.getJsDomain('/images/login.js')}"></script>
+    <link href="${webUtil.getCssDomain('/css/login2.css')}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <h1>永康公众平台#*<sup>2016</sup>*#</h1>

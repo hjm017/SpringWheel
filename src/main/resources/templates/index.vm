@@ -7,8 +7,8 @@
 		<meta name="description" content="运营后台" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- basic styles -->
-		<link href="${webUtil.getCssPath('/css/bootstrap.min.css')}" rel="stylesheet" />
-		<link rel="stylesheet" href="${webUtil.getCssPath('/css/font-awesome.min.css')}" />
+        <link href="${webUtil.getCssDomain('/css/bootstrap.min.css')}" rel="stylesheet"/>
+        <link rel="stylesheet" href="${webUtil.getCssDomain('/css/font-awesome.min.css')}"/>
 
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
@@ -22,9 +22,9 @@
 
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="${webUtil.getCssPath('/css/ace.min.css')}" />
-		<link rel="stylesheet" href="${webUtil.getCssPath('/css/ace-rtl.min.css')}" />
-		<link rel="stylesheet" href="${webUtil.getCssPath('/css/ace-skins.min.css')}" />
+        <link rel="stylesheet" href="${webUtil.getCssDomain('/css/ace.min.css')}"/>
+        <link rel="stylesheet" href="${webUtil.getCssDomain('/css/ace-rtl.min.css')}"/>
+        <link rel="stylesheet" href="${webUtil.getCssDomain('/css/ace-skins.min.css')}"/>
 
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -34,7 +34,7 @@
 
 		<!-- ace settings handler -->
 
-		<script src="${webUtil.getJsPath('/js/ace-extra.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/ace-extra.min.js')}"></script>
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -214,7 +214,7 @@
 
 								<li>
 									<a href="#">
-										<img src="${webUtil.getImgPath('/avatars/avatar.png')}" class="msg-photo" alt="Alex's Avatar" />
+										<img src="${webUtil.getImgDomain('/avatars/avatar.png')}" class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -231,7 +231,7 @@
 
 								<li>
 									<a href="#">
-										<img src="${webUtil.getImgPath('/avatars/avatar3.png')}" class="msg-photo" alt="Susan's Avatar" />
+										<img src="${webUtil.getImgDomain('/avatars/avatar3.png')}" class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -248,7 +248,7 @@
 
 								<li>
 									<a href="#">
-										<img src="${webUtil.getImgPath('/avatars/avatar4.png')}" class="msg-photo" alt="Bob's Avatar" />
+										<img src="${webUtil.getImgDomain('/avatars/avatar4.png')}" class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -274,7 +274,8 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="${webUtil.getImgPath('/avatars/user.jpg')}" alt="Jason's Photo" />
+                                <img class="nav-user-photo" src="${webUtil.getImgDomain('/avatars/user.jpg')}"
+                                     alt="Jason's Photo"/>
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									Jason
@@ -1218,7 +1219,9 @@
 															<div class="clearfix">
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="${webUtil.getImgPath('/avatars/user.jpg')}" />
+                                                                        <img alt="Bob Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
+																				 '/avatars/user.jpg')}"/>
 																	</div>
 
 																	<div class="body">
@@ -1271,7 +1274,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Joe Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Joe Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar2.png')}" />
 																	</div>
 
@@ -1325,7 +1329,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Jim Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Jim Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar.png')}" />
 																	</div>
 
@@ -1379,7 +1384,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alex Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Alex Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar5.png')}" />
 																	</div>
 
@@ -1401,7 +1407,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Bob Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar2.png')}" />
 																	</div>
 
@@ -1423,7 +1430,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Susan's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Susan's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar3.png')}" />
 																	</div>
 
@@ -1445,7 +1453,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Phil Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Phil Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar4.png')}" />
 																	</div>
 
@@ -1467,7 +1476,8 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alexa Doe's avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Alexa Doe's avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar1.png')}" />
 																	</div>
 
@@ -1505,7 +1515,8 @@
 															<div class="comments">
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's Avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Bob Doe's Avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar.png')}" />
 																	</div>
 
@@ -1562,7 +1573,8 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Jennifer's Avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Jennifer's Avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar1.png')}" />
 																	</div>
 
@@ -1597,7 +1609,8 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Joe's Avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Joe's Avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar2.png')}" />
 																	</div>
 
@@ -1632,7 +1645,8 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Rita's Avatar" src="${webUtil.getImgPath(
+                                                                        <img alt="Rita's Avatar"
+                                                                             src="${webUtil.getImgDomain(
 																			'/avatars/avatar3.png')}" />
 																	</div>
 
@@ -1700,7 +1714,7 @@
 													<div class="dialogs">
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="${webUtil.getImgPath(
+                                                                <img alt="Alexa's Avatar" src="${webUtil.getImgDomain(
 																	'/avatars/avatar1.png')}" />
 															</div>
 
@@ -1725,7 +1739,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="John's Avatar" src="${webUtil.getImgPath(
+                                                                <img alt="John's Avatar" src="${webUtil.getImgDomain(
 																	'/avatars/avatar.png')}" />
 															</div>
 
@@ -1750,7 +1764,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Bob's Avatar" src="${webUtil.getImgPath(
+                                                                <img alt="Bob's Avatar" src="${webUtil.getImgDomain(
 																	'/avatars/user.jpg')}" />
 															</div>
 
@@ -1776,7 +1790,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Jim's Avatar" src="${webUtil.getImgPath(
+                                                                <img alt="Jim's Avatar" src="${webUtil.getImgDomain(
 																	'/avatars/avatar4.png')}" />
 															</div>
 
@@ -1801,7 +1815,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="${webUtil.getImgPath(
+                                                                <img alt="Alexa's Avatar" src="${webUtil.getImgDomain(
 																	'/avatars/avatar1.png')}" />
 															</div>
 
@@ -1933,8 +1947,8 @@
 		<script type="text/javascript">
 			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 		</script>
-		<script src="${webUtil.getJsPath('/js/bootstrap.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/typeahead-bs2.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/bootstrap.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/typeahead-bs2.min.js')}"></script>
 
 		<!-- page specific plugin scripts -->
 
@@ -1942,19 +1956,19 @@
 		  <script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
 
-		<script src="${webUtil.getJsPath('/js/jquery-ui-1.10.3.custom.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/jquery.ui.touch-punch.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/jquery.slimscroll.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/jquery.easy-pie-chart.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/jquery.sparkline.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/flot/jquery.flot.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/flot/jquery.flot.pie.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/flot/jquery.flot.resize.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/jquery-ui-1.10.3.custom.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/jquery.ui.touch-punch.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/jquery.slimscroll.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/jquery.easy-pie-chart.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/jquery.sparkline.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/flot/jquery.flot.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/flot/jquery.flot.pie.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/flot/jquery.flot.resize.min.js')}"></script>
 
 		<!-- ace scripts -->
 
-		<script src="${webUtil.getJsPath('/js/ace-elements.min.js')}"></script>
-		<script src="${webUtil.getJsPath('/js/ace.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/ace-elements.min.js')}"></script>
+        <script src="${webUtil.getJsDomain('/js/ace.min.js')}"></script>
 
 		<!-- inline scripts related to this page -->
 
