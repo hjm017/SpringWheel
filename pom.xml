@@ -27,6 +27,7 @@
     <commons-beanutils.version>1.9.2</commons-beanutils.version>
     <orika.version>1.4.6</orika.version>
     <httpclient.version>4.5.2</httpclient.version>
+    <json-simple.version>1.1.1</json-simple.version>
 
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,17 +35,18 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
   </properties>
 
+
   <dependencies>
     <!-- spring boot -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <exclusions>
+      <!--<exclusions>
         <exclusion>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-logging</artifactId>
         </exclusion>
-      </exclusions>
+      </exclusions>-->
     </dependency>
 
     <dependency>
@@ -73,10 +75,10 @@
       <artifactId>spring-boot-starter-velocity</artifactId>
     </dependency>
 
-    <dependency>
+    <!--<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j</artifactId>
-    </dependency>
+    </dependency>-->
     <!-- <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-devtools</artifactId>
@@ -102,11 +104,12 @@
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
 
-    <!--数据版本管理-->
+    <!--数据版本管理
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-core</artifactId>
     </dependency>
+    -->
 
     <!-- utils -->
     <dependency>
@@ -139,6 +142,12 @@
       <artifactId>httpclient</artifactId>
       <version>${httpclient.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>${json-simple.version}</version>
+    </dependency>
+
 
 
 
@@ -207,17 +216,6 @@
         <version>2.4</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-maven-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <driver>com.mysql.jdbc.Driver</driver>
-          <url>jdbc:mysql://192.168.51.188:3306/big_screen?charset=UTF-8</url>
-          <user>big_screen</user>
-          <password>big_screen</password>
         </configuration>
       </plugin>
     </plugins>

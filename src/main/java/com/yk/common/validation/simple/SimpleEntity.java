@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class SimpleEntity {
 
-	@NotBlank(message="名字不能为空或者空串")
+	@NotBlank(message="{100003}")
 	@Length(min=2,max=10,message="名字必须由2~10个字组成")
 	private String name;
 	

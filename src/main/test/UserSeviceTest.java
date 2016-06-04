@@ -1,6 +1,10 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yk.Application;
+import com.yk.api.support.ErrorResult;
 import com.yk.common.util.HttpClientUtil;
+import com.yk.common.validation.ValidationResult;
+import com.yk.common.validation.ValidationUtils;
+import com.yk.common.validation.simple.SimpleEntity;
 import com.yk.data.domain.User;
 import com.yk.api.dto.UserDto;
 import com.yk.service.UserService;
@@ -45,6 +49,16 @@ public class UserSeviceTest {
         String json = mapper.writeValueAsString(userDto);
         String body = HttpClientUtil.post(host + "/user/users", json);
         System.out.println(body);
+
+    }
+
+    @Test
+    public void testValidation(){
+        SimpleEntity simpleEntity = new SimpleEntity();
+        ValidationResult validationResult  = ValidationUtils.validateEntity(simpleEntity);
+        if (validationResult.isHasErrors()){
+            System.out.println(validationResult.getErrorMsg());
+        }
 
     }
 }
