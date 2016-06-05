@@ -9,7 +9,6 @@
     <title>Bootstrap Login Form Template</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="${webUtil.getCssDomain('/css/bootstrap.min.css')}">
     <link rel="stylesheet" href="${webUtil.getCssDomain('/css/font-awesome/css/font-awesome.min.css')}">
     <link rel="stylesheet" href="${webUtil.getCssDomain('/css/form-elements.css')}">

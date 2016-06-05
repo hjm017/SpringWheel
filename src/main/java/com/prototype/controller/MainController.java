@@ -18,8 +18,6 @@ public class MainController {
     @RequestMapping("/index.do")
     public String index() {
         ControllerHelper.showMsgPage(new ModelMap(), "22");
-        if (true)
-            throw new RuntimeException("test");
         return "login_1";
     }
 

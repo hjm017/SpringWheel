@@ -20,7 +20,6 @@
 
     <!-- fonts -->
 
-#*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />*#
 
     <!-- ace styles -->
 
@@ -727,9 +726,9 @@
                                 <h1 class="grey lighter smaller">
 											<span class="blue bigger-125">
 												<i class="icon-random"></i>
-												500
+                                                ${status}
 											</span>
-                                    Something Went Wrong
+                                    ${exception}:${message}
                                 </h1>
 
                                 <hr/>
@@ -838,7 +837,7 @@
 
 <!--[if !IE]> -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="${webUtil.getJsDomain('/js/jquery-1.11.1.min.js')}"></script>
 
 <!-- <![endif]-->
 

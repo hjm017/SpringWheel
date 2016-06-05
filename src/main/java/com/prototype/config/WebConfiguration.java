@@ -38,7 +38,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
         //添加参数校验器
         ValidatorInterceptor validatorInterceptor = new ValidatorInterceptor();
-        registry.addInterceptor(validatorInterceptor);
+        registry.addInterceptor(validatorInterceptor).excludePathPatterns("/error");
     }
 
 

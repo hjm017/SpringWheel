@@ -1,5 +1,6 @@
 package com.prototype.controller;
 
+import com.prototype.common.annotation.ParamCheck;
 import com.prototype.controller.form.user.UserRegisterForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class UserController {
     }
 
     @ResponseBody
+    @ParamCheck
     @RequestMapping("/register.do")
     public String register(UserRegisterForm userRegisterForm) {
 

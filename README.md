@@ -11,3 +11,9 @@ spring boot + spring data jpa + jdbc template
 
 ###1、嵌入式tomcat启动
 ###2、外部容器启动
+
+## Druid监控平台
+
+**URL：** http://localhost:8080/prototype/druid/index.html
+**用户名:** admin
+**密码:** admin
