@@ -635,7 +635,7 @@
 								</li>
 
 								<li>
-									<a href="error-500.html">
+                                    <a href="error.vm">
 										<i class="icon-double-angle-right"></i>
 										500错误页面
 									</a>
