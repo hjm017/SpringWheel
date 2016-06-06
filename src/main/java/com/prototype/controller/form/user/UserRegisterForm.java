@@ -20,6 +20,8 @@ public class UserRegisterForm {
 
     private String passoword;
 
+    private UserAddForm userAddForm;
+
 
     public String getUserName() {
         return userName;
@@ -51,5 +53,13 @@ public class UserRegisterForm {
 
     public void setPassoword(String passoword) {
         this.passoword = passoword;
+    }
+
+    public UserAddForm getUserAddForm() {
+        return userAddForm;
+    }
+
+    public void setUserAddForm(UserAddForm userAddForm) {
+        this.userAddForm = userAddForm;
     }
 }
