@@ -1,6 +1,9 @@
 package com.prototype.interceptor;
 
 import com.prototype.common.annotation.ParamCheck;
+import com.prototype.common.exception.ParamCheckException;
+import com.prototype.common.validation.ValidationResult;
+import com.prototype.common.validation.ValidationUtils;
 import org.hibernate.validator.internal.engine.ValidatorImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +26,10 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
+import javax.validation.groups.Default;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -55,6 +55,7 @@ public class ValidationInterceptor implements HandlerInterceptor {
 
     public ValidationInterceptor(RequestMappingHandlerAdapter requestMappingHandlerAdapter) {
         this.argumentResolvers = requestMappingHandlerAdapter.getArgumentResolvers();
+        this.adapter = requestMappingHandlerAdapter;
     }
 
     public Validator getValidator() {
@@ -73,6 +74,8 @@ public class ValidationInterceptor implements HandlerInterceptor {
         ValidatorImpl validatorImpl = (ValidatorImpl) validatorFactoryBean.getValidator();
         ServletWebRequest webRequest = new ServletWebRequest(request, response);
         HandlerMethod method = (HandlerMethod) handler;
+
+        //如果方法上面有@ParamCheck注解，则该方法会进行参数校验
         ParamCheck valid = method.getMethodAnnotation(ParamCheck.class);
         if (valid != null) {
             Class<?>[] groups = new Class<?>[0];
@@ -88,12 +91,47 @@ public class ValidationInterceptor implements HandlerInterceptor {
                 Object value = resolver.resolveArgument(parameter, mavContainer, webRequest, webDataBinderFactory);
                 parameterValues[i] = value;
             }
-            Set<ConstraintViolation<Object>> violations = validatorImpl.validateParameters(method.getBean(), method.getMethod(), parameterValues, groups);
-            if (!violations.isEmpty()) {
-                throw new ConstraintViolationException(violations);
+
+            ValidationResult validationResult = checkParam(validatorImpl, parameterValues, method, groups);
+            if (validationResult.isHasErrors()) {
+                throw new ParamCheckException(validationResult.getErrorMsg().toString());
             }
         }
         return true;
+    }
+
+
+    private ValidationResult checkParam(ValidatorImpl validatorImpl, Object[] parameterValues, HandlerMethod method, Class<?>[] groups) {
+        Set<ConstraintViolation<Object>> violations = null;
+        Map<String, String> errorMsg = new HashMap<String, String>();
+        //检验对象
+        for (Object obj : parameterValues) {
+            if (obj != null) {
+                violations = validatorImpl.validate(obj, Default.class);
+                ValidationResult result = ValidationUtils.getValidationResult(violations);
+                if (result.isHasErrors()) {
+                    errorMsg.putAll(result.getErrorMsg());
+                }
+            }
+        }
+
+        //检验方法参数
+        violations = validatorImpl.validateParameters(method.getBean(), method.getMethod(), parameterValues, groups);
+        ValidationResult result = ValidationUtils.getValidationResult(violations);
+        if (result.isHasErrors()) {
+            errorMsg.putAll(result.getErrorMsg());
+        }
+
+        if (!errorMsg.isEmpty()) {
+            ValidationResult validationResult = new ValidationResult();
+            validationResult.setHasErrors(true);
+            validationResult.setErrorMsg(errorMsg);
+            return validationResult;
+        }
+
+        //如果都没有异常，返回默认值
+        return new ValidationResult(false);
+
     }
 
     private WebDataBinderFactory getDataBinderFactory(HandlerMethod handlerMethod) throws Exception {

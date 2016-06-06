@@ -31,6 +31,13 @@ public class ValidationResult {
 		this.errorMsg = errorMsg;
 	}
 
+	public ValidationResult() {
+	}
+
+	public ValidationResult(boolean isHasErrors) {
+		this.setHasErrors(isHasErrors);
+
+	}
 	@Override
 	public String toString() {
 		return "ValidationResult [hasErrors=" + hasErrors + ", errorMsg="

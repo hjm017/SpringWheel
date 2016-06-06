@@ -1,5 +1,7 @@
 package com.prototype.controller.form.user;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -8,10 +10,10 @@ import javax.validation.constraints.NotNull;
  */
 public class UserRegisterForm {
 
-    @NotNull
+    @NotEmpty
     private String userName;
 
-    @NotNull
+    @NotEmpty
     private String nickName;
 
     private String email;
