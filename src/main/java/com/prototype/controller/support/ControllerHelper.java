@@ -1,6 +1,6 @@
 package com.prototype.controller.support;
 
-import com.prototype.common.constants.YKConstant;
+import com.prototype.common.constants.ApplicationConstant;
 import com.prototype.controller.form.BaseSearchForm;
 import org.springframework.data.domain.Page;
 import org.springframework.ui.ModelMap;
@@ -39,6 +39,6 @@ public class ControllerHelper {
      */
     public static String showMsgPage(ModelMap map, String code){
         map.addAttribute("code",code);
-        return YKConstant.MSG_PAGE;
+        return ApplicationConstant.MSG_PAGE;
     }
 }

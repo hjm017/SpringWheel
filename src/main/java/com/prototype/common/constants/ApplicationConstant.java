@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
  * Time: 17:27
  * To change this template use File | Settings | File Templates.
  */
-@Component("ykConstant")
-public class YKConstant {
+public class ApplicationConstant {
      /****************   page default  *************/
     /**
      * 列表页面大小
@@ -34,6 +33,12 @@ public class YKConstant {
      * 消息显示
      */
     public static final String I18N_CODE = "classpath:/i18n/code";
+
+
+    /**
+     * 验证信息
+     */
+    public static final String I18N_VALIDATION = "classpath:/i18n/validation";
 
     /**
      * 编码

@@ -1,6 +1,6 @@
 package com.prototype.controller.form;
 
-import com.prototype.common.constants.YKConstant;
+import com.prototype.common.constants.ApplicationConstant;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,7 +30,7 @@ public class BaseSearchForm {
 
     public BaseSearchForm() {
         this.currentPage = 1;
-        this.pageSize = YKConstant.PAGE_SIZE;
+        this.pageSize = ApplicationConstant.PAGE_SIZE;
     }
 
     public Integer getPageSize() {

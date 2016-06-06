@@ -1,6 +1,6 @@
 package com.prototype.config;
 
-import com.prototype.common.constants.YKConstant;
+import com.prototype.common.constants.ApplicationConstant;
 import com.prototype.interceptor.GlobalExceptionController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -9,14 +9,12 @@ import org.springframework.boot.autoconfigure.web.BasicErrorController;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.http.HttpStatus;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
@@ -43,8 +41,8 @@ public class BeanConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasenames(YKConstant.I18N_MSG, YKConstant.I18N_CODE);
-        messageSource.setDefaultEncoding(YKConstant.I18N_ENCODIND);
+        messageSource.setBasenames(ApplicationConstant.I18N_MSG, ApplicationConstant.I18N_CODE);
+        messageSource.setDefaultEncoding(ApplicationConstant.I18N_ENCODIND);
         return messageSource;
     }
 
@@ -60,26 +58,20 @@ public class BeanConfiguration extends WebMvcConfigurerAdapter {
     }
 
 
-    /**
-     * 增加错误提示页面
-     *
-     * @return
-     */
-    @Bean
-    public EmbeddedServletContainerCustomizer containerCustomizer() {
-        return new EmbeddedServletContainerCustomizer() {
-            @Override
-            public void customize(ConfigurableEmbeddedServletContainer container) {
-                container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404"));
-            }
-        };
-    }
-
 
     @Bean
     @ConditionalOnMissingBean(value = ErrorController.class, search = SearchStrategy.CURRENT)
     public BasicErrorController basicErrorController(ErrorAttributes errorAttributes) {
         return new GlobalExceptionController(errorAttributes, this.properties.getError());
+    }
+
+    @Bean
+    public Validator validator() {
+        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasenames(ApplicationConstant.I18N_VALIDATION, ApplicationConstant.I18N_CODE);
+        localValidatorFactoryBean.setValidationMessageSource(messageSource);
+        return localValidatorFactoryBean;
     }
 
 }

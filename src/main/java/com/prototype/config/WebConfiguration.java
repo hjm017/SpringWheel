@@ -1,11 +1,15 @@
 package com.prototype.config;
 
 import com.prototype.interceptor.ApiMethodInterceptor;
-import com.prototype.interceptor.ValidatorInterceptor;
+import com.prototype.interceptor.ValidationInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+
+import javax.validation.Validator;
 
 /**
  * 所有有关springmvc 的配置只需要继承WebMvcConfigurerAdapter重写里面的方法即可
@@ -20,6 +24,11 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
+    @Autowired
+    private RequestMappingHandlerAdapter requestMappingHandlerAdapter;
+
+    @Autowired
+    private Validator validator;
 
     /**
      * 增加拦截器
@@ -37,7 +46,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         registry.addInterceptor(apiMethodInterceptor).addPathPatterns("/rest/*");
 
         //添加参数校验器
-        ValidatorInterceptor validatorInterceptor = new ValidatorInterceptor();
+        ValidationInterceptor validatorInterceptor = new ValidationInterceptor(requestMappingHandlerAdapter);
+        validatorInterceptor.setValidator(validator);
         registry.addInterceptor(validatorInterceptor).excludePathPatterns("/error");
     }
 
