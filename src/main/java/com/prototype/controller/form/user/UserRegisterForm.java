@@ -2,7 +2,6 @@ package com.prototype.controller.form.user;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * @author hjm
