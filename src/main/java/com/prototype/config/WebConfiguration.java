@@ -24,10 +24,10 @@ import javax.validation.Validator;
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
-    @Autowired
+    @Autowired(required = false)
     private RequestMappingHandlerAdapter requestMappingHandlerAdapter;
 
-    @Autowired
+    @Autowired(required = false)
     private Validator validator;
 
     /**

@@ -5,10 +5,7 @@ import com.prototype.interceptor.GlobalExceptionController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.SearchStrategy;
-import org.springframework.boot.autoconfigure.web.BasicErrorController;
-import org.springframework.boot.autoconfigure.web.ErrorAttributes;
-import org.springframework.boot.autoconfigure.web.ErrorController;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.boot.autoconfigure.web.*;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,8 +27,12 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  */
 @Configuration
 public class BeanConfiguration extends WebMvcConfigurerAdapter {
-    @Autowired
+
+    @Autowired(required = false)
     private ServerProperties properties;
+
+    @Autowired(required = false)
+    private ErrorAttributes errorAttributes;
 
     /**
      * 替换spring boot默认生成的messageSource
@@ -61,7 +62,13 @@ public class BeanConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
     @ConditionalOnMissingBean(value = ErrorController.class, search = SearchStrategy.CURRENT)
-    public BasicErrorController basicErrorController(ErrorAttributes errorAttributes) {
+    public BasicErrorController basicErrorController() {
+        if (properties == null) {
+            properties = new ServerProperties();
+        }
+        if (errorAttributes == null) {
+            errorAttributes = new DefaultErrorAttributes();
+        }
         return new GlobalExceptionController(errorAttributes, this.properties.getError());
     }
 

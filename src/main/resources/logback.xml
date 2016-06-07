@@ -77,20 +77,13 @@
 		</triggeringPolicy>
 	</appender>
 
-	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
-	<logger name="org.hibernate.type.descriptor.sql.BasicBinder"
-			level="${log.level.sql}"/>
-	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
-			level="${log.level.sql}"/>
-	<logger name="org.hibernate.SQL" level="${log.level.sql}">
-		<appender-ref ref="SQL"/>
-	</logger>
-	<logger name="org.hibernate.engine.QueryParameters" level="${log.level.sql}">
-		<appender-ref ref="SQL"/>
-	</logger>
-	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="${log.level.sql}">
-		<appender-ref ref="SQL"/>
-	</logger>
+	<!--SQL日志设置 -->
+	<logger name="jdbc.connection" level="OFF"/>
+	<logger name="jdbc.audit" level="OFF"/>
+	<logger name="jdbc.resultset" level="OFF"/>
+	<logger name="jdbc.sqlonly" level="OFF"/>
+	<logger name="jdbc.sqltiming" level="${log.level.sql}"/>
+
 
 	<!--请求日志打印-->
 	<logger name="request" level="info">

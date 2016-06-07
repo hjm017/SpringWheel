@@ -1,15 +1,16 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prototype.Application;
-import com.prototype.api.support.ErrorResult;
+import com.prototype.api.dto.UserDto;
 import com.prototype.common.util.HttpClientUtil;
 import com.prototype.common.validation.ValidationResult;
 import com.prototype.common.validation.ValidationUtils;
 import com.prototype.common.validation.simple.SimpleEntity;
 import com.prototype.data.domain.User;
-import com.prototype.api.dto.UserDto;
 import com.prototype.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.annotation.DirtiesContext;
@@ -25,6 +26,7 @@ import java.util.List;
 @SpringApplicationConfiguration(classes = Application.class)
 @DirtiesContext
 public class UserSeviceTest {
+    private static Logger log = LoggerFactory.getLogger(UserSeviceTest.class);
 
     @Autowired
     private UserService userService;
@@ -49,6 +51,13 @@ public class UserSeviceTest {
         String json = mapper.writeValueAsString(userDto);
         String body = HttpClientUtil.post(host + "/user/users", json);
         System.out.println(body);
+
+    }
+
+    @Test
+    public void testLogJdbc() throws Exception {
+        log.info("开始");
+        log.info("完成");
 
     }
 
