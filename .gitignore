@@ -6,6 +6,7 @@
 *.ear
 
 #需要忽略的目录
-/target/*
-/.idea/*
+target
+.idea
+.git
 
