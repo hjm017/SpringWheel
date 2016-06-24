@@ -1,4 +1,4 @@
-# prototype
+# SpringWheel
 ## 技术框架
 
 spring boot + spring data jpa + jdbc template
