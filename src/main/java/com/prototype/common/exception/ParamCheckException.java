@@ -6,7 +6,14 @@ package com.prototype.common.exception;
  */
 public class ParamCheckException extends RuntimeException {
 
+    public ErrorCode errorCode;
+
     public ParamCheckException(String message) {
         super(message);
+    }
+
+    public ParamCheckException(String message, ErrorCode errorCode) {
+        super(message);
+        this.errorCode = errorCode;
     }
 }
