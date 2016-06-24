@@ -32,7 +32,7 @@ import java.util.Set;
 /**
  * API方法拦截器
  * 1、签名验证（checkSign）
- * 2、权限拦截
+ * 2、权限拦截（checkAuthn）
  * 3、参数校验（checkParam）
  *
  * @author hjm
@@ -67,6 +67,9 @@ public class ApiMethodInterceptor implements HandlerInterceptor {
         //验证签名
         checkSign(reqBody);
 
+        //验证权限
+        checkAuthn();
+
         //参数校验
         ParamCheck paramCheck = method.getMethodAnnotation(ParamCheck.class);
         if (paramCheck != null) {
@@ -75,7 +78,6 @@ public class ApiMethodInterceptor implements HandlerInterceptor {
 
         return true;
     }
-
 
 
     @Override
@@ -91,6 +93,7 @@ public class ApiMethodInterceptor implements HandlerInterceptor {
     }
 
 
+
     //****************************************//
     //                                        //
     //            sign check                  //
@@ -103,6 +106,17 @@ public class ApiMethodInterceptor implements HandlerInterceptor {
 
         logger.info("请求body:" + paramMap);
     }
+
+    //****************************************//
+    //                                        //
+    //            authn check                 //
+    //                                        //
+    //****************************************//
+
+    private void checkAuthn() {
+
+    }
+
 
     //****************************************//
     //                                        //
