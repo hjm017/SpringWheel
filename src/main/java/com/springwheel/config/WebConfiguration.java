@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -77,4 +78,10 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         messageConverters.add(apiHttpMessageConverter);
         argumentResolvers.add(new ApiRequestResponseBodyMethodProcessor(messageConverters));
     }
+
+//    @Override
+//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+//        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
+//        converters.add(apiHttpMessageConverter);
+//    }
 }
