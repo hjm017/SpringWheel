@@ -74,24 +74,22 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
-        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
-        messageConverters.add(apiHttpMessageConverter);
+        List<HttpMessageConverter<?>> messageConverters = getHttpMessageConverters();
         argumentResolvers.add(new ApiRequestResponseBodyMethodProcessor(messageConverters));
     }
 
+
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
-        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
-        messageConverters.add(apiHttpMessageConverter);
+        List<HttpMessageConverter<?>> messageConverters = getHttpMessageConverters();
         returnValueHandlers.add(new ApiRequestResponseBodyMethodProcessor(messageConverters));
     }
 
+    private List<HttpMessageConverter<?>> getHttpMessageConverters(){
+        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
+        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
+        messageConverters.add(apiHttpMessageConverter);
+        return messageConverters;
+    }
 
-    //    @Override
-//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
-//        converters.add(apiHttpMessageConverter);
-//    }
 }
