@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Controller
-@ResponseBody
+@ApiResponseBody
 public @interface ApiController {
 
     String value() default "";

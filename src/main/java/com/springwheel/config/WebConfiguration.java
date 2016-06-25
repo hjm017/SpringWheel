@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -79,7 +80,16 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         argumentResolvers.add(new ApiRequestResponseBodyMethodProcessor(messageConverters));
     }
 
-//    @Override
+    @Override
+    public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
+        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
+        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
+        messageConverters.add(apiHttpMessageConverter);
+        returnValueHandlers.add(new ApiRequestResponseBodyMethodProcessor(messageConverters));
+    }
+
+
+    //    @Override
 //    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        ApiHttpMessageConverter apiHttpMessageConverter = new ApiHttpMessageConverter();
 //        converters.add(apiHttpMessageConverter);
