@@ -37,8 +37,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(MediaTypes.JSON_UTF_8));
-        ErrorResult result = new ErrorResult(ex.errorCode.code, ex.getMessage());
-        return new ResponseEntity<ErrorResult>(result, headers, HttpStatus.valueOf(ex.errorCode.httpStatus));
+        ErrorResult result = new ErrorResult(ex.getErrorCode().code, ex.getMessage());
+        return new ResponseEntity<ErrorResult>(result, headers, HttpStatus.valueOf(ex.getErrorCode().httpStatus));
     }
 
     @ExceptionHandler(value = { Exception.class })

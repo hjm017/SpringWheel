@@ -1,7 +1,6 @@
 package com.springwheel.interceptor;
 
 import com.springwheel.common.annotation.ParamCheck;
-import com.springwheel.common.exception.ErrorCode;
 import com.springwheel.common.exception.ParamCheckException;
 import com.springwheel.common.validation.ValidationResult;
 import com.springwheel.common.validation.ValidationUtils;
@@ -90,8 +89,7 @@ public class ValidationInterceptor implements HandlerInterceptor {
                 groups);
 
         if (validationResult.isHasErrors()) {
-            throw new ParamCheckException(validationResult.getErrorMsg().toString(),
-                    ErrorCode.BAD_REQUEST);
+            throw new ParamCheckException(validationResult.getErrorMsg().toString());
         }
     }
 
