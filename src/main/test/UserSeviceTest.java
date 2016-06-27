@@ -5,7 +5,7 @@ import com.springwheel.common.util.HttpClientUtil;
 import com.springwheel.common.validation.ValidationResult;
 import com.springwheel.common.validation.ValidationUtils;
 import com.springwheel.common.validation.simple.SimpleEntity;
-import com.springwheel.data.domain.User;
+import com.springwheel.domain.User;
 import com.springwheel.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

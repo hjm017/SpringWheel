@@ -21,6 +21,11 @@ public class MainController {
         return "login_1";
     }
 
+    @RequestMapping("/")
+    public String welcome() {
+        return "redirect:index.do";
+    }
+
     @RequestMapping("/main.do")
     public String main() {
         return "index";

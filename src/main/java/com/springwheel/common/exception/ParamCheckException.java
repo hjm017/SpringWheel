@@ -14,7 +14,8 @@ public class ParamCheckException extends RuntimeException {
         super(message);
     }
 
-    public ParamCheckException( ErrorCode errorCode) {
+    public ParamCheckException( String message,ErrorCode errorCode) {
+        super(message);
         this.errorCode = errorCode;
     }
 }

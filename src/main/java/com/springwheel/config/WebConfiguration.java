@@ -3,7 +3,6 @@ package com.springwheel.config;
 import com.springwheel.common.annotation.ApiHttpMessageConverter;
 import com.springwheel.common.annotation.ApiRequestResponseBodyMethodProcessor;
 import com.springwheel.common.constants.ApplicationConstant;
-import com.springwheel.interceptor.ApiMethodInterceptor;
 import com.springwheel.interceptor.ValidationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +15,7 @@ import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 import javax.validation.Validator;
 import java.util.ArrayList;
@@ -37,6 +37,9 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Autowired(required = false)
     private Validator validator;
+
+    @Autowired(required = false)
+    private ValidationInterceptor validationInterceptor;
 
 
 
@@ -61,13 +64,11 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         registry.addInterceptor(localeChangeInterceptor);
 
         //添加API拦截器
-        ApiMethodInterceptor apiMethodInterceptor =new ApiMethodInterceptor();
-        registry.addInterceptor(apiMethodInterceptor).addPathPatterns("/rest/**");
+//        ApiMethodInterceptor apiMethodInterceptor =new ApiMethodInterceptor();
+//        registry.addInterceptor(apiMethodInterceptor).addPathPatterns("/rest/**");
 
         //添加参数校验器
-        ValidationInterceptor validatorInterceptor = new ValidationInterceptor();
-        validatorInterceptor.setValidator(validator);
-        registry.addInterceptor(validatorInterceptor).excludePathPatterns("/error");
+        registry.addInterceptor(validationInterceptor).excludePathPatterns("/error");
     }
 
 
@@ -90,5 +91,20 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         messageConverters.add(apiHttpMessageConverter);
         return messageConverters;
     }
+
+    /**
+     * 修改DispatcherServlet默认配置
+     *
+     * @param dispatcherServlet
+     * @return
+     */
+//    @Bean
+//    public ServletRegistrationBean dispatcherRegistration(DispatcherServlet dispatcherServlet) {
+//        ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet);
+//        registration.getUrlMappings().clear();
+//        registration.addUrlMappings("*.do");
+//        registration.addUrlMappings("*.json");
+//        return registration;
+//    }
 
 }

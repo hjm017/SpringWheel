@@ -1,8 +1,13 @@
 package com.springwheel.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
+import com.springwheel.api.support.ErrorResult;
+import com.springwheel.common.exception.ParamCheckException;
+import com.springwheel.common.util.constants.MediaTypes;
 import org.springframework.boot.autoconfigure.web.BasicErrorController;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -47,10 +52,21 @@ public class GlobalExceptionController extends BasicErrorController {
 
     @RequestMapping
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+    public ResponseEntity error(HttpServletRequest request) {
         Map<String, Object> body = getErrorAttributes(request,
                 isIncludeStackTrace(request, MediaType.ALL));
         HttpStatus status = getStatus(request);
+
+        //参数校验异常
+        String exception =   (String)body.get("exception");
+        String message = (String)body.get("message");
+        if (exception.equals(ParamCheckException.class.getName())){
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType(MediaTypes.JSON_UTF_8));
+            ErrorResult result = new ErrorResult(HttpStatus.BAD_REQUEST.value(),
+                    message);
+            return new ResponseEntity<ErrorResult>(result,headers, HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<Map<String, Object>>(body, status);
     }
 

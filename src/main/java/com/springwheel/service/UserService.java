@@ -1,10 +1,11 @@
 package com.springwheel.service;
 
-import com.springwheel.data.domain.User;
+import com.springwheel.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +16,14 @@ import java.util.List;
  * @Time 2016/5/1 19:03.
  */
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+//    @Autowired
+//    private UserDao userDao;
 
 
   /*  public User findByUserName(String userName){
@@ -55,4 +60,7 @@ public class UserService {
         });
     }
 
+
+    public void save(User user) {
+    }
 }

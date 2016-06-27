@@ -14,6 +14,6 @@ spring boot + spring data jpa + jdbc template
 
 ## Druid监控平台
 
-**URL：** http://localhost:8080/prototype/druid/index.html
+**URL：** http://localhost:8080/springwheel/druid/index.html
 **用户名:** admin
 **密码:** admin
