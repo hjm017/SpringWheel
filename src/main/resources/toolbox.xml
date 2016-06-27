@@ -8,7 +8,7 @@
 	<tool>
   		<key>webUtil</key>
   		<scope>application</scope>
-		<class>com.prototype.web.WebUtil</class>
+		<class>com.springwheel.web.WebUtil</class>
 	</tool>
 
 </toolbox>
