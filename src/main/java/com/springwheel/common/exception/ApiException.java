@@ -6,7 +6,6 @@ package com.springwheel.common.exception;
  */
 public class ApiException extends RuntimeException {
 
-    public ErrorCode errorCode;
 
     public ApiException(String message) {
         super(message);
