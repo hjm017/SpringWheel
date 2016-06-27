@@ -1,13 +1,15 @@
 package com.springwheel.common.exception;
 
+/**
+ * @author hjm
+ * @Time 2016/6/4 10:28.
+ */
 public class ApiException extends RuntimeException {
 
-	private static final long serialVersionUID = -8634700792767837033L;
+    public ErrorCode errorCode;
 
-	public ErrorCode errorCode;
+    public ApiException(String message) {
+        super(message);
+    }
 
-	public ApiException(String message, ErrorCode errorCode) {
-		super(message);
-		this.errorCode = errorCode;
-	}
 }
