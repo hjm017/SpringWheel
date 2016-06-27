@@ -62,7 +62,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
         //添加API拦截器
         ApiMethodInterceptor apiMethodInterceptor =new ApiMethodInterceptor();
-        registry.addInterceptor(apiMethodInterceptor).addPathPatterns("/rest/*");
+        registry.addInterceptor(apiMethodInterceptor).addPathPatterns("/rest/**");
 
         //添加参数校验器
         ValidationInterceptor validatorInterceptor = new ValidationInterceptor();

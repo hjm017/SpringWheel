@@ -42,13 +42,14 @@ public class ApiMethodInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
-        HandlerMethod method = (HandlerMethod) handler;
-        byte[] buffer = IOUtils.toByteArray(request.getInputStream());
-        String reqBody = new String(buffer, ENCODING);
+//        HandlerMethod method = (HandlerMethod) handler;
+//        byte[] buffer = IOUtils.toByteArray(request.getInputStream());
+//        String reqBody = new String(buffer, ENCODING);
+
 
 
         //验证签名
-        checkSign(reqBody);
+//        checkSign(reqBody);
 
         //验证权限
         checkAuthn();
