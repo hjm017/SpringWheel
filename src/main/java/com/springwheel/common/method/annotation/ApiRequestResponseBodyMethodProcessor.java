@@ -1,5 +1,7 @@
-package com.springwheel.common.annotation;
+package com.springwheel.common.method.annotation;
 
+import com.springwheel.common.annotation.ApiRequestBody;
+import com.springwheel.common.annotation.ApiResponseBody;
 import org.springframework.core.Conventions;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotationUtils;
