@@ -1,11 +1,14 @@
 # SpringWheel
 ## 技术框架
 
-spring boot + spring data jpa + jdbc template
-**数据库连接池:**druid
-**参数检验:**hibernate validator
-**模板引擎:**velocity
-**接口风格:** RESTful
+|模块 |使用技术|
+|---|---|
+| 数据库连接池  |druid|
+|框架|spring boot|
+|orm|spring data jpa、jdbc template|
+|模板引擎|velocity|
+|日志|logback|
+
 
 ## 启动方式
 

@@ -1,6 +1,5 @@
 package com.springwheel.interceptor;
 
-import com.alibaba.fastjson.JSONObject;
 import com.springwheel.api.support.ErrorResult;
 import com.springwheel.common.exception.ParamCheckException;
 import com.springwheel.common.util.constants.MediaTypes;
