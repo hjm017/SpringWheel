@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springwheel.Application;
-import com.springwheel.api.dto.UserDto;
+import com.springwheel.api.dto.user.UserDto;
 import com.springwheel.common.util.HttpClientUtil;
 import com.springwheel.common.validation.ValidationResult;
 import com.springwheel.common.validation.ValidationUtils;
