@@ -1,4 +1,4 @@
-package com.springwheel.common.annotation;
+package com.springwheel.common.method;
 
 
 import com.fasterxml.jackson.core.JsonEncoding;
