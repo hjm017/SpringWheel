@@ -1,8 +1,8 @@
 package com.springwheel.config;
 
-import com.springwheel.common.annotation.ApiHttpMessageConverter;
-import com.springwheel.common.annotation.ApiRequestResponseBodyMethodProcessor;
 import com.springwheel.common.constants.ApplicationConstant;
+import com.springwheel.common.method.ApiHttpMessageConverter;
+import com.springwheel.common.method.annotation.ApiRequestResponseBodyMethodProcessor;
 import com.springwheel.interceptor.ValidationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
